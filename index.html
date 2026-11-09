@@ -1,0 +1,43 @@
+<!doctype html>
+<html lang="de"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow"><title>CorMed Entwurf</title>
+<style>
+:root{--bg:#f3f6f7;--ink:#0d2329;--mute:#4a6168;--line:#d3dee1;--acc:#0a5260}
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif;padding:16px}
+form{width:100%;max-width:380px;background:#fff;border:1px solid var(--line);border-radius:16px;padding:32px;box-shadow:0 20px 50px -30px rgba(13,35,41,.35)}
+b{display:block;font-size:26px;letter-spacing:-.02em;margin-bottom:6px}p{margin:0 0 20px;color:var(--mute)}
+label{display:block;font-weight:600;font-size:14px;margin-bottom:6px}
+input{width:100%;font:inherit;padding:12px 14px;border:1px solid var(--line);border-radius:10px;min-height:46px}
+input:focus{outline:2px solid var(--acc);outline-offset:1px}
+button{margin-top:14px;width:100%;min-height:46px;border:0;border-radius:10px;background:var(--acc);color:#fff;font:600 16px system-ui,sans-serif;cursor:pointer}
+button:disabled{opacity:.6}.err{color:#b4261e;font-size:14px;margin-top:10px;min-height:20px}
+</style></head><body>
+<form id="f"><b>CorMed</b><p>Entwurf der neuen Website. Bitte geben Sie das Passwort ein, das Sie von Ricki bekommen haben.</p>
+<label for="pw">Passwort</label><input id="pw" type="password" autocomplete="current-password" required autofocus>
+<button id="b" type="submit">Öffnen</button><div class="err" id="e" role="alert"></div></form>
+<script>
+const D={"salt": "822facfa5c58d565009fcc176cca0e24", "iter": 600000, "iv": "46f1a0d89d589c0a2178b6c4582afefc", "mac": "80764a176226b1639cd446d348235a9acad7d30f2ed6f9f7ec2cb49afef78ebb", "ct": "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"};
+const hex=s=>new Uint8Array(s.match(/../g).map(h=>parseInt(h,16)));
+const b64=s=>Uint8Array.from(atob(s),c=>c.charCodeAt(0));
+const toHex=a=>[...new Uint8Array(a)].map(x=>x.toString(16).padStart(2,'0')).join('');
+async function derive(pw){const k=await crypto.subtle.importKey('raw',new TextEncoder().encode(pw),'PBKDF2',false,['deriveBits']);
+ return new Uint8Array(await crypto.subtle.deriveBits({name:'PBKDF2',salt:hex(D.salt),iterations:D.iter,hash:'SHA-256'},k,512));}
+async function open(dk){
+ const ct=b64(D.ct),iv=hex(D.iv);
+ const mk=await crypto.subtle.importKey('raw',dk.slice(32),{name:'HMAC',hash:'SHA-256'},false,['verify']);
+ const data=new Uint8Array(iv.length+ct.length);data.set(iv);data.set(ct,iv.length);
+ if(!await crypto.subtle.verify('HMAC',mk,hex(D.mac),data)) return false;
+ const ek=await crypto.subtle.importKey('raw',dk.slice(0,32),'AES-CBC',false,['decrypt']);
+ const html=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-CBC',iv},ek,ct));
+ if(document.readyState!=='complete') await new Promise(r=>addEventListener('load',r,{once:true}));
+ await new Promise(r=>setTimeout(r,0));
+ document.open();document.write(html);document.close();return true;}
+(async()=>{let s=null;try{s=localStorage.getItem('cormed-key')}catch(e){}
+ if(s){try{if(await open(hex(s)))return}catch(e){}}})();
+document.getElementById('f').addEventListener('submit',async ev=>{ev.preventDefault();
+ const b=document.getElementById('b'),e=document.getElementById('e');b.disabled=true;b.textContent='Wird geöffnet …';e.textContent='';
+ try{const dk=await derive(document.getElementById('pw').value);
+  try{localStorage.setItem('cormed-key',toHex(dk))}catch(x){}
+  if(!await open(dk)){try{localStorage.removeItem('cormed-key')}catch(x){}e.textContent='Das Passwort stimmt nicht.';b.disabled=false;b.textContent='Öffnen';}
+ }catch(x){e.textContent='Ihr Browser unterstützt die Entschlüsselung nicht.';b.disabled=false;b.textContent='Öffnen';}});
+</script></body></html>
